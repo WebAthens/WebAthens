@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WebAthens | The Digital Agora for Trust, Interoperability, and Human Agency</title>
+
+    <meta name="description" content="WebAthens is a collaborative initiative advancing trust, interoperability, accountability, privacy, recognition, and human agency across people, organizations, AI systems, and connected devices.">
+    <meta name="theme-color" content="#0F4C81">
+
+    <style>
+        :root {
+            --athens-blue: #0F4C81;
+            --athens-gold: #D4A017;
+            --deep-slate: #334155;
+            --marble-white: #F8FAFC;
+
+            --text: #334155;
+            --muted: #64748B;
+            --light: #F8FAFC;
+            --border: #E2E8F0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        html {
+            scroll-behavior: auto;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--marble-white);
+        }
+
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            background: var(--athens-blue);
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 1000;
+        }
+
+        .skip-link:focus {
+            left: 12px;
+            top: 12px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            background: linear-gradient(
+                135deg,
+                #0F4C81,
+                #14558F
+            );
+            color: white;
+            text-align: center;
+            padding: 72px 24px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            margin-top: 12px;
+            opacity: 0.95;
+        }
+
+        .hero-text {
+            max-width: 800px;
+            margin: 24px auto 0;
+            font-size: 1.15rem;
+        }
+
+        .cta-buttons {
+            margin-top: 36px;
+        }
+
+        .button {
+            display: inline-block;
+            margin: 6px;
+            padding: 14px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s ease,
+                        box-shadow 0.2s ease;
+            min-width: 44px;
+            min-height: 44px;
+        }
+
+        .button-primary {
+            background: var(--athens-gold);
+            color: #111111;
+        }
+
+        .button-primary:hover,
+        .button-primary:focus-visible {
+            background: #c49314;
+        }
+
+        .button-secondary {
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+        }
+
+        .button-secondary:hover,
+        .button-secondary:focus-visible {
+            background: rgba(255,255,255,0.10);
+        }
+
+        .button:focus-visible {
+            outline: 3px solid white;
+            outline-offset: 3px;
+            box-shadow: 0 0 0 6px rgba(255,255,255,0.25);
+        }
+
+        section {
+            padding: 48px 0;
+        }
+
+        h2 {
+            color: var(--athens-blue);
+            margin-top: 0;
+            letter-spacing: -0.02em;
+        }
+
+        .mission-box {
+            background: var(--light);
+            padding: 28px;
+            border-radius: 8px;
+            border-left: 4px solid var(--athens-gold);
+            font-size: 1.1rem;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .card {
+            border: 1px solid var(--border);
+            padding: 24px;
+            border-radius: 8px;
+            background: #ffffff;
+            box-shadow: 0 2px 6px rgba(15, 76, 129, 0.05);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--athens-blue);
+        }
+
+        ul {
+            padding-left: 24px;
+        }
+
+        .principles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
+            margin-top: 24px;
+            margin-bottom: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .principle {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--athens-gold);
+            border-radius: 8px;
+            padding: 14px;
+        }
+
+        .documents {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .documents a {
+            display: inline-block;
+            padding: 12px 18px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            color: var(--athens-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .documents a:hover,
+        .documents a:focus-visible {
+            background: var(--marble-white);
+            border-color: var(--athens-blue);
+        }
+
+        .cta-section {
+            background: var(--light);
+            border-left: 4px solid var(--athens-gold);
+            border-radius: 8px;
+            padding: 28px;
+        }
+
+        .closing-note {
+            margin: 24px 0 0;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            color: var(--deep-slate);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            background: #0B3A63;
+            color: white;
+            text-align: center;
+            padding: 48px 24px;
+        }
+
+        footer p {
+            margin: 8px 0;
+        }
+
+        .muted {
+            color: #CBD5E1;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 56px 20px;
+            }
+
+            section {
+                padding: 36px 0;
+            }
+
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.15rem;
+            }
+
+            .hero-text {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .cards,
+            .principles {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header>
+        <h1>WebAthens</h1>
+
+        <div class="tagline">
+            The Digital Agora for Trust, Interoperability, and Human Agency
+        </div>
+
+        <div class="hero-text">
+            Bringing together people, organizations, AI systems, and connected devices
+            to explore trusted collaboration, responsible innovation, and a more
+            interoperable future.
+        </div>
+
+        <div class="cta-buttons">
+            <a
+                class="button button-primary"
+                href="MANIFESTO.md">
+                Read the Manifesto
+            </a>
+            <a
+                class="button button-secondary"
+                href="CONTRIBUTING.md">
+                Get Involved
+            </a>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section>
+            <div class="container">
+                <h2>Mission</h2>
+                <div class="mission-box">
+                    <strong>
+                        Advance trusted interoperability across people, organizations,
+                        AI systems, and connected devices.
+                    </strong>
+                </div>
+
+                <h2 style="margin-top:32px;">Vision</h2>
+                <p>
+                    A world where trust, interoperability, accountability, privacy,
+                    recognition, and human agency are foundational to digital collaboration.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Why WebAthens Exists</h2>
+                <p>
+                    We believe the future may not be one database to rule them all.
+                </p>
+                <p>
+                    Instead, it may be a network of people, organizations, AI systems,
+                    connected devices, and independent data sources working together through
+                    trusted interoperability.
+                </p>
+                <p>
+                    As information becomes increasingly distributed, the challenge shifts
+                    from where data is stored to how it can be discovered, trusted,
+                    understood, shared, and used responsibly.
+                </p>
+                <p>
+                    WebAthens exists to help build the connective tissue that enables
+                    collaboration across those distributed ecosystems.
+                </p>
+            </div>
+        </section>
+
+        <section style="background: var(--light);">
+            <div class="container">
+                <h2>Why WebAthens?</h2>
+                <p>
+                    Inspired by the ancient Agora of Athens, WebAthens serves as a modern gathering place
+                    where innovators, researchers, startups, nonprofits, standards organizations,
+                    investors, and community leaders can exchange ideas, build partnerships,
+                    and explore responsible innovation.
+                </p>
+
+                <div class="cards">
+                    <div class="card">
+                        <h3>Trust</h3>
+                        <p>
+                            Exploring infrastructure, governance, and approaches that help
+                            establish confidence across digital ecosystems.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3>Interoperability</h3>
+                        <p>
+                            Encouraging systems, organizations, communities, and technologies
+                            to work together across boundaries.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3>Human Agency</h3>
+                        <p>
+                            Supporting a future where people remain active participants in
+                            the design, governance, and use of technology.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Areas of Exploration</h2>
+                <ul>
+                    <li>Responsible & Accountable AI</li>
+                    <li>Trust Infrastructure</li>
+                    <li>Interoperability & Open Standards</li>
+                    <li>Digital Identity</li>
+                    <li>Verifiable Credentials</li>
+                    <li>Privacy & Selective Sharing</li>
+                    <li>Recognition & Reputation Systems</li>
+                    <li>Community-Led Innovation</li>
+                    <li>Collective Intelligence</li>
+                    <li>Human-AI Collaboration</li>
+                    <li>Connected Devices & IoT</li>
+                </ul>
+            </div>
+        </section>
+
+        <section style="background: var(--light);">
+            <div class="container">
+                <h2>Founding Principles</h2>
+                <ul class="principles">
+                    <li class="principle">Trust by Design</li>
+                    <li class="principle">Privacy by Default</li>
+                    <li class="principle">Interoperability First</li>
+                    <li class="principle">Human Agency Matters</li>
+                    <li class="principle">Accountability Builds Trust</li>
+                    <li class="principle">Recognition Encourages Contribution</li>
+                    <li class="principle">Collaboration Accelerates Innovation</li>
+                    <li class="principle">Communities Help Shape the Future</li>
+                    <li class="principle">Build for the Long Term</li>
+                    <li class="principle">Responsible Innovation Requires Stewardship</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Explore WebAthens</h2>
+                <div class="documents">
+                    <a href="README.md">Overview</a>
+                    <a href="VISION.md">Vision</a>
+                    <a href="MANIFESTO.md">Manifesto</a>
+                    <a href="PRINCIPLES.md">Principles</a>
+                    <a href="CONTRIBUTING.md">Contributing</a>
+                    <a href="GOVERNANCE.md">Governance</a>
+                    <a href="ROADMAP.md">Roadmap</a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="cta-section">
+                    <h2>Get Involved</h2>
+                    <p>
+                        Interested in trust infrastructure, responsible AI,
+                        digital identity, interoperability, standards,
+                        governance, recognition, collective intelligence,
+                        or helping shape the future of trusted collaboration?
+                    </p>
+                    <p>
+                        Help shape the future by participating in discussions,
+                        contributing research, exploring interoperability challenges,
+                        developing standards-minded approaches, proposing initiatives,
+                        and building trusted partnerships across communities and organizations.
+                    </p>
+                    <p>
+                        Questions, ideas, partnerships, or feedback?
+                        Join the conversation through GitHub Discussions or contact
+                        <a href="mailto:mitchell@webbadge.com">mitchell@webbadge.com</a>.
+                    </p>
+                    <p class="closing-note">
+                        WebAthens is intentionally early. The founding documents are a starting point
+                        for discussion and collaboration, not a finished destination. We welcome
+                        thoughtful feedback, ideas, and contributions as the initiative evolves.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p><strong>WebAthens</strong></p>
+        <p>The Digital Agora for Trust, Interoperability, and Human Agency</p>
+        <p class="muted">
+            Building the conditions where the next generation of responsible innovation can emerge.
+        </p>
+        <p class="muted">© 2026 WebAthens. An independent initiative.</p>
+    </footer>
+</body>
+</html>
